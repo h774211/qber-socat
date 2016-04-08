@@ -1,5 +1,9 @@
-FROM alpine:3.3
+FROM ubuntu:14.04
 
-RUN apk --update add socat && rm -rf /var/cache/apk/*
+RUN apt-get update && \
+    apt-get install -y socat && \
+    rm -rf /var/lib/apt/lists/*
 
+ADD /logmein-hamachi-2.1.0.139-x64 /logmein-hamachi-2.1.0.139-x64
+RUN /logmein-hamachi-2.1.0.139-x64/install.sh
 ENTRYPOINT ["/bin/bash"]
