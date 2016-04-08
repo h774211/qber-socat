@@ -5,7 +5,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 ADD /logmein-hamachi-2.1.0.139-x64 /logmein-hamachi-2.1.0.139-x64
-
+RUN bash -l -c "/logmein-hamachi-2.1.0.139-x64/install.sh"
 ENTRYPOINT ["socat"]
 EXPOSE 80
 EXPOSE 443
