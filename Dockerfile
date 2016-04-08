@@ -6,5 +6,5 @@ RUN apt-get update && \
 
 ADD /logmein-hamachi-2.1.0.139-x64 /logmein-hamachi-2.1.0.139-x64
 RUN cd /logmein-hamachi-2.1.0.139-x64
-RUN ./install.sh
+RUN /bin/bash ./install.sh
 CMD ["/bin/bash"]
