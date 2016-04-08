@@ -2,9 +2,6 @@
 
 HAMACHI_DST=/opt/logmein-hamachi
 
-if [ ! -x /usr/lib/lsb/install_initd ] ; then
-	echo LogMeIn Hamachi needs lsb package;
-fi
 
 if [ -x /opt/logmein-hamachi/uninstall.sh ] ; then
 	echo Removing previous version ..
