@@ -30,8 +30,8 @@ check_login(){
     [[ $out =~ "status" ]] && break
   done
 
-  out=$(hamachi login)
-  echo $out
+  echo "start login"
+  echo $(hamachi login)
 
   while [ 1 ]; do
     out=$(hamachi)
