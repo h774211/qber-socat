@@ -15,6 +15,7 @@ check_login(){
     if [[ $line =~ $regex_status ]]; then
       if [[ ${BASH_REMATCH[1]} == offline ]]; then
         while [ 1 ]; do
+          echo "do login"
           out=$(hamachi login)
           [[ $out =~ ok ]] && break || sleep 1
         done
@@ -22,6 +23,7 @@ check_login(){
     fi
   done
   while [ 1 ]; do
+    echo "wait login"
     out=$(hamachi)
     [[ $out =~ "Logging in" ]] && sleep 1
     [[ $out =~ "logging in" ]] && break
