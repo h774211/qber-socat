@@ -1,7 +1,6 @@
 FROM ubuntu:14.04
 
 RUN apt-get update && \
-    apt-get install -y lsb && \
     apt-get install -y socat && \
     rm -rf /var/lib/apt/lists/*
 
