@@ -23,7 +23,7 @@ check_login(){
   done
   while [ 1 ]; do
     out=$(hamachi)
-    [[ $out =~ "loggin in" ]] && sleep 1
+    [[ $out =~ "Logging in" ]] && sleep 1
     [[ $out =~ "logging in" ]] && break
   done
 }
@@ -31,8 +31,6 @@ check_login(){
 cd /logmein-hamachi-2.1.0.139-x64
 ./install.sh
 start_daemon
-su -c "/etc/init.d/logmein-hamachi start"
-#check_login
-hamachi login
+check_login
 hamachi join $HAMACHI_NET_ACC $HAMACHI_NET_PASS
 socat $LOACL_HOST $REMOTE_HOST
