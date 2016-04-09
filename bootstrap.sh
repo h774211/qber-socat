@@ -1,4 +1,12 @@
 #!/bin/bash
+start_daemon(){
+  /opt/logmein-hamachi/hamachid -c /config
+  while [ 1 ]; do
+    out=$(hamachi)
+    [[ $out =~ *version* ]] && sleep 1 || break
+  done
+}
+
 check_login(){
   IFS=$'\n';
   regex_status="status.*?: (.*?)"
@@ -23,6 +31,7 @@ check_login(){
 cd /logmein-hamachi-2.1.0.139-x64
 ./install.sh
 
+start_daemon
 check_login
 hamachi join $HAMACHI_NET_ACC $HAMACHI_NET_PASS
 socat $LOACL_HOST $REMOTE_HOST
