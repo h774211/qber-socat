@@ -6,7 +6,7 @@ RUN apt-get update && \
 
 ADD /logmein-hamachi-2.1.0.139-x64 /logmein-hamachi-2.1.0.139-x64
 RUN /logmein-hamachi-2.1.0.139-x64/install.sh
-ADD /start.sh /start.sh
+ADD /bootstrap.sh /bootstrap.sh
 EXPOSE 80
 EXPOSE 443
 EXPOSE 22
