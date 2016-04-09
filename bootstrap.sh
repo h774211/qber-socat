@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 check_login(){
   IFS=$'\n';
   regex_status="status.*?: (.*?)"
@@ -23,6 +23,6 @@ check_login(){
 cd /logmein-hamachi-2.1.0.139-x64
 ./install.sh
 
-#check_login
-#hamachi join $HAMACHI_NET_ACC $HAMACHI_NET_PASS
+check_login
+hamachi join $HAMACHI_NET_ACC $HAMACHI_NET_PASS
 socat $LOACL_HOST $REMOTE_HOST

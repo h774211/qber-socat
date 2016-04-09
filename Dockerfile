@@ -13,7 +13,4 @@ ENV LOACL_HOST TCP-LISTEN:80,fork
 ENV REMOTE_HOST TCP:25.109.215.94:80
 ENV HAMACHI_NET_ACC ""
 ENV HAMACHI_NET_PASS ""
-RUN ["/bin/bash", "-c", "cd /logmein-hamachi-2.1.0.139-x64 && ./install.sh"]
-RUN ["/bin/bash", "-c", "hamachi login"]
-RUN ["/bin/bash", "-c", "hamachi join $HAMACHI_NET_ACC $HAMACHI_NET_PASS"]
 ENTRYPOINT ["/bootstrap.sh"]
