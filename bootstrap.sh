@@ -22,8 +22,17 @@ check_login(){
   #     fi
   #   fi
   # done
+
+  while [ 1 ]; do
+    out=$(hamachi)
+    echo $out
+    [[ $out =~ "Hamachi does not seem to be running" ]] && sleep 1
+    [[ $out =~ "status" ]] && break
+  done
+
   out=$(hamachi login)
   echo $out
+
   while [ 1 ]; do
     out=$(hamachi)
     echo $out
