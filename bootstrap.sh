@@ -8,23 +8,25 @@ start_daemon(){
 }
 
 check_login(){
-  IFS=$'\n';
-  regex_status="status.*?: (.*?)"
-  regex_account="lmi account:(.*?)"
-  for line in $(hamachi); do
-    if [[ $line =~ $regex_status ]]; then
-      if [[ ${BASH_REMATCH[1]} == offline ]]; then
-        while [ 1 ]; do
-          echo "do login"
-          out=$(hamachi login)
-          [[ $out =~ ok ]] && break || sleep 1
-        done
-      fi
-    fi
-  done
+  # IFS=$'\n';
+  # regex_status="status: (.*?)"
+  # regex_account="lmi account:(.*?)"
+  # for line in $(hamachi); do
+  #   if [[ $line =~ $regex_status ]]; then
+  #     if [[ ${BASH_REMATCH[1]} == offline ]]; then
+  #       while [ 1 ]; do
+  #         echo "do login"
+  #         out=$(hamachi login)
+  #         [[ $out =~ ok ]] && break || sleep 1
+  #       done
+  #     fi
+  #   fi
+  # done
+  out=$(hamachi login)
+  echo $out
   while [ 1 ]; do
-    echo "wait login"
     out=$(hamachi)
+    echo $out
     [[ $out =~ "Logging in" ]] && sleep 1
     [[ $out =~ "logging in" ]] && break
   done
