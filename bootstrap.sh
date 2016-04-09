@@ -24,7 +24,7 @@ check_login(){
   while [ 1 ]; do
     out=$(hamachi)
     [[ $out =~ "loggin in" ]] && sleep 1
-    [[ $out =~ "logged in" ]] && break
+    [[ $out =~ "logging in" ]] && break
   done
 }
 
